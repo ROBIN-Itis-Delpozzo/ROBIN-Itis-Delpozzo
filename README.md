@@ -1,6 +1,6 @@
-## Robin Orientation By Internet Network
-
-Robin is a school project aimed to use machine learning algorithms and robotic to localize and move a TurtleBot3.
+## Robin
+**Robin** is a school project aimed to use machine learning algorithms and robotic to localize and move a [TurtleBot3]("turtlebot.com").
+Robin stands for _Robin Orientation By Internet Network_. The name comes from the bird species "robin", who are able to return back home wherever they are by orienting themselves.
 
 ### Markdown
 
