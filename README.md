@@ -1,35 +1,47 @@
 ## Robin
-**Robin** is a school project aimed to use machine learning algorithms and robotic to localize and move a [TurtleBot3]("turtlebot.com").
-Robin stands for _Robin Orientation By Internet Network_. The name comes from the bird species "robin", who are able to return back home wherever they are by orienting themselves.
+**Robin** is a school project aimed to use a machine learning algorithm to localize and move a [TurtleBot3]("[turtlebot.com](http://wiki.ros.org/turtlebot3)").
+Robin stands for _Robin Orientation By Internet Network_. The name comes from the "robin" bird species, which are able to return home wherever they are.
 
-### Markdown
+### Hardware
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+TurtleBot3 is a new generation mobile robot that is modular, compact and customizable. It can be programmed using the open-source O.S. [**ROS**](https://www.ros.org/). It is based on the raspberry pi computer. 
 
-```markdown
-Syntax highlighted code block
+[Image](https://github.com/ROBIN-Itis-Delpozzo/ROBIN-Itis-Delpozzo/tree/main/img/logo_turtlebot3.png)
 
-# Header 1
-## Header 2
-### Header 3
+In addiction to it we use a [**lidar**](https://en.wikipedia.org/wiki/Lidar) to read the surroundings and detect obstacles.
 
-- Bulleted
-- List
+[Image](https://github.com/ROBIN-Itis-Delpozzo/ROBIN-Itis-Delpozzo/tree/main/img/turtlebot3.png)
 
-1. Numbered
-2. List
+### Software
 
-**Bold** and _Italic_ and `Code` text
+#### - requirements
+    - Python 3.0 or more
+    - Libraries:
+        - Pandas
+        - Numpy
+        - Scapy
+        - Sklearn
+        - Joblib
+    - a network card
+    
+#### - create the database
 
-[Link](url) and ![Image](src)
-```
+The first thing we did was creating our own database to train the neural network. To accomplish this necessity we wrote a python program which detects all the important networks around him and store their signal strenght into a .csv file (_mydataset.csv_). The dataset has this structure:
+  
+  ```
+  | location_name | wifi_1 | wifi_2 | wifi_3 | ... | wifi_n |
+  ```
+This script that make this is named _localize_wifi.py_.
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+#### - train the model
 
-### Jekyll Themes
+The second step was creating a machine learning model. We choose to write it using Jupyter notebook and the library [**scikit-learn**](https://scikit-learn.org/stable/index.html). 
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/ROBIN-Itis-Delpozzo/ROBIN-Itis-Delpozzo/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+We imported the dataset into a Pandas Dataframe and then we made some graphs to have a better understanding of the data quality.
+The following one represent the distribution of the signals strenght (x axis) in a certain zone.
 
-### Support or Contact
+[Image](https://github.com/ROBIN-Itis-Delpozzo/ROBIN-Itis-Delpozzo/tree/main/img/graph1.png)
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+The next one represent the strenght of a given network in each zone.
+
+[Image](https://github.com/ROBIN-Itis-Delpozzo/ROBIN-Itis-Delpozzo/tree/main/img/graph2.png)
