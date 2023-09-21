@@ -49,6 +49,6 @@ The next one represent the strenght of a given network in each zone.
 ![Image](/img/graph2.png)
 
 
-The final model accuracy is:
+After implementing a random forest algorithm in python we obtain this accuracy:
 
 ![Image](/img/modelQuality.png)
